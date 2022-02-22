@@ -1,0 +1,30 @@
+
+<div class="container-fluid container">
+    <h3 class="text-center">LogIn Form</h3>
+  
+<form [formGroup]="loginForm" *ngIf="!submitted" (ngSubmit)="login()">
+    
+    <div class="form-group">
+        <label>Username</label>
+        <input [class.is-invalid]="userName.invalid && userName.touched" required formControlName="userName" type="email" class="form-control" placeholder="Enter Email Address">
+        <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">Email is required</small> 
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input [class.is-invalid]="password.invalid && password.touched" required formControlName="password" type="password" class="form-control" placeholder="Enter Password">
+         
+     <div *ngIf="password.invalid && password.touched">
+         <small class="text-danger" *ngIf="password.errors?.required">Password is required</small>
+         <small class="text-danger" *ngIf="password.errors?.maxLength">Enter Minimum 8- Maximum 20 characters</small>
+        <small class="text-danger" *ngIf="password.errors?.pattern"> Must contain letters (upper and lower case)<br/>at least 1 number<br/> and 1 special characters</small>
+         
+    </div>
+    </div>
+    
+    <button [disabled]="loginForm.invalid" class="btn btn-primary" type="submit" >LogIn</button><div><a href="#" title="forgot password" alt="forgot password">Forgot Password</a></div>
+    <div>{{loginForm.value | json}}</div>
+
+</form>
+<small class="alert alert-success text-center" *ngIf="submitted">LogIn Has done successfully! </small>
+</div>

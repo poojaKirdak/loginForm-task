@@ -1,0 +1,15 @@
+.is-invalid{
+border:1px solid red;}
+.d-none{display: none;}
+
+.container{
+    max-width: 500px;
+    max-height: 400px;
+    min-height: 300px;
+    margin: 50px auto;
+    background-color:#efefef;
+    border: 1px solid #000;
+    border-radius: 10px;
+    display: block;
+
+}
